@@ -4,7 +4,7 @@ const cron = require("node-cron");
 let fs = require('fs');
 
 //* 19 * * *
-cron.schedule("* 19 * * *", function() {
+cron.schedule("00 19 * * *", function() {
   var unirest = require("unirest");
 
   var req = unirest("GET", "https://covid-19-live-stats.p.rapidapi.com/livestats");
