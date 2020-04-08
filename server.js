@@ -43,7 +43,7 @@ function updateData(){
       }
       console.log('Arquivo Criado');
       var time = getDateTime();
-      var timeJson = parse('{"result": "%s"}', time);
+      var timeJson = parse('{"updated": "%s"}', time);
       fs.writeFile(__dirname + '/./api/data/dataUpdated.json', JSON.stringify(JSON.parse(timeJson)), function(err){
         if(err){
           return console.log('erro: ' + err)
