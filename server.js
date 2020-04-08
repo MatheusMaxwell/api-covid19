@@ -4,11 +4,11 @@ const cron = require("node-cron");
 let fs = require('fs');
 
 //* 19 * * *
-cron.schedule("00 12 * * *", function() {
+cron.schedule("10 12 * * *", function() {
   updateData();
 });
 
-cron.schedule("00 20 * * *", function() {
+cron.schedule("15 12 * * *", function() {
   updateData();
 });
 
