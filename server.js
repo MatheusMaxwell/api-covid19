@@ -4,7 +4,8 @@ const cron = require("node-cron");
 let fs = require('fs');
 
 //* 19 * * *
-cron.schedule("0 */6 * * *", function() {
+//0 */6 * * *
+cron.schedule("* * * * *", function() {
   updateData();
 });
 
@@ -54,20 +55,26 @@ function getDateTime() {
 
   var date = new Date();
 
-  var hour = date.getHours();
-  hour = (hour < 10 ? "0" : "") + hour;
+  var aestTime = new Date().toLocaleString("pt-BR", {timeZone: "America/Sao_Paulo"});
+  aestTime = new Date(aestTime);
 
-  var min  = date.getMinutes();
-  min = (min < 10 ? "0" : "") + min;
+  return aestTime.toLocaleString();
+  // console.log('AEST time: '+aestTime.toLocaleString())
 
-  var year = date.getFullYear();
+  // var hour = date.getHours();
+  // hour = (hour < 10 ? "0" : "") + hour;
 
-  var month = date.getMonth() + 1;
-  month = (month < 10 ? "0" : "") + month;
+  // var min  = date.getMinutes();
+  // min = (min < 10 ? "0" : "") + min;
 
-  var day  = date.getDate();
-  day = (day < 10 ? "0" : "") + day;
+  // var year = date.getFullYear();
 
-  return day + "/" + month + "/" + year + " - " + hour + ":" + min;
+  // var month = date.getMonth() + 1;
+  // month = (month < 10 ? "0" : "") + month;
+
+  // var day  = date.getDate();
+  // day = (day < 10 ? "0" : "") + day;
+
+  // return day + "/" + month + "/" + year + " - " + hour + ":" + min;
 
 }
