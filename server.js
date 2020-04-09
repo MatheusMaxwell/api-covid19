@@ -1,13 +1,25 @@
 const app = require('./config/express')();
 const port = app.get('port');
-const cron = require("node-cron");
+//const cron = require("node-cron");
+var schedule = require('node-schedule');
 let fs = require('fs');
 
 //* 19 * * *
 //0 */6 * * *
-cron.schedule("* * * * *", function() {
-  updateData();
-}, null, true, 'America/Sao_Paulo');
+// cron.cronJob("* * * * *", function() {
+//   updateData();
+// }, null, true, 'America/Sao_Paulo');
+
+var j = schedule.scheduleJob('*/5 * * * * *', function(){
+  var time = getDateTime();
+      var timeJson = parse('{"updated": "%s"}', time);
+      fs.writeFile(__dirname + '/./api/data/dataUpdated.json', JSON.stringify(JSON.parse(timeJson)), function(err){
+        if(err){
+          return console.log('erro: ' + err)
+        }
+        console.log('Arquivo data de atualização criado.');
+      })
+});
 
 // RODANDO NOSSA APLICAÇÃO NA PORTA SETADA
 app.listen(port, () => {
