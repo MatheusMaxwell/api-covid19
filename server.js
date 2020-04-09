@@ -5,7 +5,7 @@ let fs = require('fs');
 
 //* 19 * * *
 //0 */6 * * *
-cron.schedule("0 */1 * * * *", function() {
+cron.schedule("* * * * *", function() {
   updateData();
 }, null, true, 'America/Sao_Paulo');
 
@@ -58,7 +58,7 @@ function getDateTime() {
   var aestTime = new Date().toLocaleString("pt-BR", {timeZone: "America/Sao_Paulo"});
   aestTime = new Date(aestTime);
 
-  return aestTime.toLocaleString();
+  return aestTime.toString();
   // console.log('AEST time: '+aestTime.toLocaleString())
 
   // var hour = date.getHours();
