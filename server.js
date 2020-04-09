@@ -7,7 +7,7 @@ let fs = require('fs');
 //0 */6 * * *
 cron.schedule("0 0 */6 * * *", function() {
   updateData();
-}, true);
+}, null, true, 'America/Sao_Paulo');
 
 // RODANDO NOSSA APLICAÇÃO NA PORTA SETADA
 app.listen(port, () => {
