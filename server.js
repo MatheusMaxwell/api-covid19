@@ -5,9 +5,9 @@ let fs = require('fs');
 
 //* 19 * * *
 //0 */6 * * *
-cron.schedule("* * * * *", function() {
+cron.schedule("0 0 */6 * * *", function() {
   updateData();
-});
+}, true);
 
 // RODANDO NOSSA APLICAÇÃO NA PORTA SETADA
 app.listen(port, () => {
@@ -28,7 +28,7 @@ function updateData(){
 
   req.headers({
     "x-rapidapi-host": "covid-19-live-stats.p.rapidapi.com",
-    "x-rapidapi-key": "d7f91f96fbmsh3b19878588c3ce6p1f5b9fjsnbb905c9c8d6a"
+    "x-rapidapi-key": "c4818552efmshf898f6bd9af30dcp1c49e0jsn0d88ded18141"
   });
 
   req.end(function (res) {
