@@ -5,7 +5,7 @@ let fs = require('fs');
 
 //* 19 * * *
 //0 */6 * * *
-cron.schedule("0 0 */6 * * *", function() {
+cron.schedule("0 */1 * * * *", function() {
   updateData();
 }, null, true, 'America/Sao_Paulo');
 
